@@ -18,7 +18,6 @@ public class MainPage extends AbstractPage {
 
     @FindBy(css = "#resultAge")
     private SelenideElement resultAge;
-
     @FindBy(css = "#help_name")
     private SelenideElement errorMessage;
 
@@ -30,7 +29,6 @@ public class MainPage extends AbstractPage {
 
     @FindBy(css = "#resultName")
     private SelenideElement resultName;
-
 
     public void typeUsername(String username) {
         usernameInput.setValue(username);
