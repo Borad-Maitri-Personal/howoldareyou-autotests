@@ -83,4 +83,28 @@ public class MainStepDefinition extends AbstractStepDefinition {
         return Period.between(birthDate, currentDate).getYears();
     }
 
+    @Then("I see {string} error message")
+    public void iSeeErrorMessage(String expectedMessage) {
+        Assert.assertEquals(homePage.getErrorMessage(),expectedMessage);
+    }
+
+    @Then("I see {string} error message for date")
+    public void iSeeErrorMessageForDate(String expectedDateMessage) {
+        Assert.assertEquals(homePage.getDateErrorMessage(),expectedDateMessage);
+    }
+
+    @Then("I see {string} on home page")
+    public void iSeeOnHomePage(String heading) {
+        Assert.assertEquals(homePage.getHeading(),heading);
+    }
+
+    @When("I type {string} in username")
+    public void iTypeInUsername(String name) {
+        typeUserName(name);
+    }
+
+    @Then("I see correct {string} in age result")
+    public void iSeeCorrectInAgeResult(String expectedName) {
+        Assert.assertEquals(homePage.getResultName(),expectedName);
+    }
 }

@@ -19,6 +19,18 @@ public class MainPage extends AbstractPage {
     @FindBy(css = "#resultAge")
     private SelenideElement resultAge;
 
+    @FindBy(css = "#help_name")
+    private SelenideElement errorMessage;
+
+    @FindBy(css = "#help_birthday")
+    private SelenideElement dateMessage;
+
+    @FindBy(css = ".logo.cursive")
+    private SelenideElement heading;
+
+    @FindBy(css = "#resultName")
+    private SelenideElement resultName;
+
 
     public void typeUsername(String username) {
         usernameInput.setValue(username);
@@ -29,10 +41,25 @@ public class MainPage extends AbstractPage {
     }
 
     public void clickSubmitButton() {
+        submitButton.isEnabled();
         submitButton.click();
     }
 
     public int getResultAgeText() {
         return Integer.parseInt(resultAge.should(Condition.visible).getText());
+    }
+
+    public String getResultName(){
+        return resultName.should(Condition.visible).getText();
+    }
+
+    public String getErrorMessage(){
+        return errorMessage.should(Condition.visible).getText();
+    }
+    public String getDateErrorMessage(){
+        return dateMessage.should(Condition.visible).getText();
+    }
+    public String getHeading(){
+        return heading.should(Condition.visible).getText();
     }
 }
